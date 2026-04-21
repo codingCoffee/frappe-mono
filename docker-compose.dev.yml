@@ -1,6 +1,6 @@
 services:
   web-app:
-    image: codingcoffee/frappe-mono:develop
+    image: codingcoffee/frappe-mono:dev
     build:
       dockerfile: ./Dockerfile.dev
     ports:
@@ -20,6 +20,10 @@ services:
     env_file:
       - .frappe.env
     command: bench start
+    networks:
+      default:
+        aliases:
+          - site1.local
 
   redis:
     image: valkey/valkey:9.0.3-alpine3.23

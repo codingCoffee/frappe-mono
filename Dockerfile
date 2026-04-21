@@ -62,6 +62,11 @@ RUN set -ex \
     mariadb-client \
     libmariadb-dev
 
+RUN set -ex \
+  && apt install -y --no-install-recommends \
+    nginx \
+    supervisor
+
 # Add frappe user and setup sudo
 RUN groupadd -g 1000 frappe \
   && useradd -ms /bin/bash -u 1000 -g 1000 -G sudo frappe \
@@ -90,3 +95,4 @@ RUN set -ex \
   && bench setup requirements
 
 WORKDIR /home/frappe/frappe-bench
+USER root
