@@ -1,0 +1,10 @@
+
+# frappe persistence
+*.env
+apps/
+sites/*
+!sites/common_site_config.json
+.venv
+
+# mariadb
+mariadb-data/

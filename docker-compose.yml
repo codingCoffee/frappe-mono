@@ -1,0 +1,45 @@
+services:
+  web-app:
+    image: codingcoffee/frappe-mono:develop
+    build:
+      dockerfile: ./Dockerfile.dev
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    restart: unless-stopped
+    volumes:
+      - ./apps:/home/frappe/frappe-bench/apps
+      - ./sites:/home/frappe/frappe-bench/sites
+      - ./.venv:/home/frappe/frappe-bench/env
+      - ./Procfile:/home/frappe/frappe-bench/Procfile
+    depends_on:
+      redis:
+        condition: service_healthy
+      mariadb:
+        condition: service_healthy
+    env_file:
+      - .frappe.env
+    command: bench start
+
+  redis:
+    image: valkey/valkey:9.0.3-alpine3.23
+    healthcheck:
+      test: ["CMD", "valkey-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  mariadb:
+    image: mariadb:11.8.6-noble
+    env_file:
+      - .mariadb.env
+    volumes:
+      - ./mariadb-data/mysql:/var/lib/mysql
+      - ./frappe-mariadb.cnf:/etc/mysql/my.cnf
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
