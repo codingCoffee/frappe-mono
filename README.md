@@ -28,6 +28,10 @@ For subsequently executing any bench command you'll have to exec into the web-ap
 docker compose -f docker-compose.prod.yml exec web-app bash
 ```
 
+## Commonly used commands
+
+Note: All these commands are to be executed inside the docker container
+
 - For setting up a new site
 
 ```sh
@@ -64,3 +68,17 @@ bench drop-site site-name.com
 bench drop-site site-name.com --no-backup
 ```
 
+- Upgrade an app post initial setup (example assumes erpnext)
+
+```sh
+cd apps/erpnext
+git fetch --tags
+git checkout v15.106.0
+./env/bin/pip install -q -U -e apps/erpnext
+
+bench build --app erpnext
+bench --site site-name.com migrate
+bench --site site-name.com clear-cache
+bench --site site-name.com build
+bench restart
+```
