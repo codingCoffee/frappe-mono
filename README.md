@@ -1,13 +1,13 @@
 
-# Frappe Docker Minimal
+# Frappe Mono
 
 ## Initial Setup
 
 This is a one time initial setup. Execute these commands once to setup frappe-bench
 
 ```sh
-git clone https://github.com/codingCoffee/frappe-docker-minimal
-cd frappe-docker-minimal
+git clone https://github.com/codingCoffee/frappe-mono
+cd frappe-mono
 
 cp .mariadb.env.example .mariadb.env
 
