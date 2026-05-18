@@ -1,6 +1,10 @@
 
 # Frappe Mono
 
+A minimal dockerized Frappe / ERPNext setup. This is not the official
+dockerized distribution, it's an opinionated setup and should only be used
+if you understand the internal workings of Frappe.
+
 ## Initial Setup
 
 This is a one time initial setup. Execute these commands once to setup frappe-bench
