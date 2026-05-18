@@ -2,12 +2,11 @@
 # For prod setup
 
 
-cp .mariadb.env
-cp .frappe.env
-
 ```sh
 git clone https://github.com/codingCoffee/frappe-docker-minimal
 cd frappe-docker-minimal
+
+cp .mariadb.env.example .mariadb.env
 
 docker compose -f docker-compose.prod.yml build
 sh init_script.sh

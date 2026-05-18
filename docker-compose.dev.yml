@@ -17,8 +17,6 @@ services:
         condition: service_healthy
       mariadb:
         condition: service_healthy
-    env_file:
-      - .frappe.env
     command: bench start
     networks:
       default:
