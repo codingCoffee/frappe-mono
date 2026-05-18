@@ -17,7 +17,7 @@ docker compose -f docker-compose.prod.yml logs -f
 
 # Restore
 
-```
+```sh
 bench new-site site-name.com
 bench --site site-name.com install-app erpnext
 bench --site site-name.com build
