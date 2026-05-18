@@ -58,6 +58,8 @@ RUN set -ex \
     sudo \
     git \
     gcc \
+    file \
+    unzip \
     pkg-config \
     mariadb-client \
     libmariadb-dev
@@ -82,7 +84,7 @@ ENV BENCH_GIT_REPO_URL=https://github.com/frappe/bench
 ENV BENCH_LOCAL_PATH="bench-repo"
 
 ENV FRAPPE_GIT_REPO_URL=https://github.com/frappe/frappe.git
-ENV FRAPPE_GIT_BRANCH=v16.15.0
+ENV FRAPPE_GIT_BRANCH=v15.106.0
 ENV FRAPPE_LOCAL_PATH=frappe-bench
 ENV FRAPPE_PYTHON=python
 
@@ -95,4 +97,4 @@ RUN set -ex \
   && bench setup requirements
 
 WORKDIR /home/frappe/frappe-bench
-USER root
+ENTRYPOINT [ "sudo", "supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf" ]
