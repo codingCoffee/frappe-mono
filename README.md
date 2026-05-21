@@ -47,6 +47,7 @@ bench --site site-name.com migrate
 - For setting up a new site with erpnext as well
 
 ```sh
+bench get-app --branch v15.106.0 https://github.com/frappe/erpnext
 bench --site site-name.com install-app erpnext
 ```
 
