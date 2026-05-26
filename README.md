@@ -51,6 +51,13 @@ bench get-app --branch v16.19.1 https://github.com/frappe/erpnext
 bench --site site-name.com install-app erpnext
 ```
 
+- For hrms
+
+```sh
+bench get-app --branch v16.7.1 https://github.com/frappe/hrms
+bench --site site-name.com install-app hrms
+```
+
 - For restoring another site
 
 ```sh
