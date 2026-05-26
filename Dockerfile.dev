@@ -79,7 +79,7 @@ ENV BENCH_GIT_REPO_URL=https://github.com/frappe/bench
 ENV BENCH_LOCAL_PATH="bench-repo"
 
 ENV FRAPPE_GIT_REPO_URL=https://github.com/frappe/frappe.git
-ENV FRAPPE_GIT_BRANCH=v15.106.0
+ENV FRAPPE_GIT_BRANCH=v16.18.3
 ENV FRAPPE_LOCAL_PATH=frappe-bench
 ENV FRAPPE_PYTHON=python
 
