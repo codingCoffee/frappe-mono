@@ -66,6 +66,12 @@ bench --site site-name.com build
 bench --site site-name.com migrate
 ```
 
+- For backing up a site
+
+```sh
+bench --site site-name.com backup --with-files
+```
+
 - To reset admin password
 
 ```sh
@@ -93,4 +99,16 @@ bench --site site-name.com migrate
 bench --site site-name.com clear-cache
 bench --site site-name.com build
 bench restart
+```
+
+- To enable server side scripts. This is a global setting for the bench, not a site specific setting
+
+```sh
+bench set-config -g server_script_enabled 1
+```
+
+- If frappe is behind a load balancer which does TLS termination and you want to setup SSO, this might be useful
+
+```sh
+bench --site site-name.com set-config host_name "https://site-name.com"
 ```
