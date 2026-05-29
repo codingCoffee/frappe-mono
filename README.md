@@ -107,7 +107,7 @@ bench restart
 bench set-config -g server_script_enabled 1
 ```
 
-- If frappe is behind a load balancer which does TLS termination and you want to setup SSO, this might be useful
+- If frappe is behind a load balancer and you want to setup SSO, this might be useful
 
 ```sh
 bench --site site-name.com set-config host_name "https://site-name.com"
