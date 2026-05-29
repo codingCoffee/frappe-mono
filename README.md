@@ -1,9 +1,10 @@
 
 # Frappe Mono
 
-A minimal dockerized Frappe / ERPNext setup. This is not the official
-dockerized distribution, it's an opinionated setup and should only be used
-if you understand the internal workings of Frappe.
+A minimal dockerized Frappe / ERPNext setup. This is **not the official
+dockerized distribution**, it's an opinionated setup and should only be used if
+you have some basic understand the internal workings of Frappe. The aim of this
+is to vastly simplify dockerized frappe deployments.
 
 ## Initial Setup
 
@@ -107,7 +108,7 @@ bench restart
 bench set-config -g server_script_enabled 1
 ```
 
-- If frappe is behind a load balancer and you want to setup SSO, this might be useful
+- If frappe is behind a load balancer which does TLS termination and you want to setup SSO, this might be useful
 
 ```sh
 bench --site site-name.com set-config host_name "https://site-name.com"
