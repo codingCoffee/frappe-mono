@@ -67,6 +67,12 @@ bench --site site-name.com build
 bench --site site-name.com migrate
 ```
 
+- For putting a site in maintenance mode
+
+```sh
+bench --site site-name.com set-maintenance-mode on
+```
+
 - For backing up a site
 
 ```sh
